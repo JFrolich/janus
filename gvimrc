@@ -120,6 +120,9 @@ function s:DefineCommand(name, destination)
   call s:CommandCabbr(a:name, a:destination)
 endfunction
 
+function Edit(file)
+  execute "e " . fnameescape(a:file)
+
 ruby << RUBY
   destination = File.expand_path(VIM.evaluate(%{system("dirname " . shellescape(a:file, 1))}))
   pwd         = File.expand_path(Dir.pwd)
@@ -136,3 +139,7 @@ endfunction
 if filereadable(expand("~/.gvimrc.local"))
   source ~/.gvimrc.local
 endif
+
+set antialias                     " MacVim: smooth fonts.
+set encoding=utf-8                " Use UTF-8 everywhere.
+
