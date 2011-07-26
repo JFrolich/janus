@@ -1,4 +1,6 @@
-# Janus: Carlhuda's vim Distribution
+# Janus without NERDTree.
+
+Download [Alloy's Macvim fork](https://github.com/alloy/macvim/downloads) with Sidebar to navigate files
 
 This is a basic distribution of vim plugins and tools intended to be run
 on top of the latest MacVIM snapshot.
