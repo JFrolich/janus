@@ -120,9 +120,6 @@ let g:gist_open_browser_after_post = 1
 set modeline
 set modelines=10
 
-" Default color scheme
-color desert
-
 " Directories for swp files
 set backupdir=~/.vim/backup
 set directory=~/.vim/backup
@@ -139,7 +136,11 @@ runtime! macros/matchit.vim
 " Show (partial) command in the status line
 set showcmd
 
+" Default color scheme
+colorscheme topfunky-light
+
 " Include user's local vim config
 if filereadable(expand("~/.vimrc.local"))
   source ~/.vimrc.local
 endif
+

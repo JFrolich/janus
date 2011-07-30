@@ -142,4 +142,5 @@ endif
 
 set antialias                     " MacVim: smooth fonts.
 set encoding=utf-8                " Use UTF-8 everywhere.
+set guifont=Inconsolata:h20            " Font family and font size.
 
