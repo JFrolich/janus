@@ -3,9 +3,9 @@ if has("gui_macvim")
   set fuoptions=maxhorz,maxvert
 
   " Command-T for CommandT
-  macmenu &File.New\ Tab key=<D-T>
-  map <D-t> :CommandT<CR>
-  imap <D-t> <Esc>:CommandT<CR>
+  "macmenu &File.New\ Tab key=<D-T>
+  "map <D-t> :CommandT<CR>
+  "imap <D-t> <Esc>:CommandT<CR>
 
   " Command-Return for fullscreen
   macmenu Window.Toggle\ Full\ Screen\ Mode key=<D-CR>
@@ -69,7 +69,7 @@ set visualbell
 set guioptions-=T
 
 " Default gui color scheme
-color topfunky-light
+" color topfunky-light
 
 " ConqueTerm wrapper
 function StartTerm()
@@ -167,5 +167,10 @@ endif
 
 set antialias                     " MacVim: smooth fonts.
 set encoding=utf-8                " Use UTF-8 everywhere.
-set guifont=Inconsolata:h16            " Font family and font size.
+set guifont=Monaco:h14            " Font family and font size.
+color solarized
 
+if has("gui_macvim")
+   macmenu &File.New\ Tab key=<nop>
+   map <D-t> <Plug>PeepOpen
+end
