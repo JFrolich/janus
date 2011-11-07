@@ -1,7 +1,6 @@
 .netrwhist
 tmp
 nerdtree_plugin
-
 after
 autoload
 doc
@@ -14,5 +13,5 @@ ftdetect
 ftplugin
 indent
 .VimballRecord
-
 .DS_Store
+backup

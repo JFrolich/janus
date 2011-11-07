@@ -78,7 +78,23 @@ function StartTerm()
 endfunction
 
 " Project Tree
-autocmd VimEnter * call s:CdIfDirectory(expand("<amatch>"))
+if exists("loaded_nerd_tree")
+  autocmd VimEnter * call s:CdIfDirectory(expand("<amatch>"))
+  autocmd FocusGained * call s:UpdateNERDTree()
+  autocmd WinEnter * call s:CloseIfOnlyNerdTreeLeft()
+endif
+
+" Close all open buffers on entering a window if the only
+" buffer that's left is the NERDTree buffer
+function s:CloseIfOnlyNerdTreeLeft()
+  if exists("t:NERDTreeBufName")
+    if bufwinnr(t:NERDTreeBufName) != -1
+      if winnr("$") == 1
+        q
+      endif
+    endif
+  endif
+endfunction
 
 " If the parameter is a directory, cd into it
 function s:CdIfDirectory(directory)
@@ -134,6 +150,15 @@ ruby << RUBY
 RUBY
 endfunction
 
+" Define the NERDTree-aware aliases
+if exists("loaded_nerd_tree")
+  call s:DefineCommand("cd", "ChangeDirectory")
+  call s:DefineCommand("touch", "Touch")
+  call s:DefineCommand("rm", "Remove")
+  call s:DefineCommand("e", "Edit")
+  call s:DefineCommand("mkdir", "Mkdir")
+  cabbrev Edit! e!
+endif
 
 " Include user's local vim config
 if filereadable(expand("~/.gvimrc.local"))
